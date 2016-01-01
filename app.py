@@ -22,8 +22,8 @@ def render_movie(project_dir):
 
 
 #Start taking screenshots
-def record(countdown = 0):
-    screenshot_number = 0 - countdown
+def record(countdown = 0, screenshot_number = 0):
+    screenshot_number = screenshot_number - countdown
     try:
         while True:
             if screenshot_number >= 0:
@@ -35,8 +35,11 @@ def record(countdown = 0):
             time.sleep(screenshot_rate)
     except KeyboardInterrupt:
         print "[+] Saving video..."
-        if raw_input("Render recorded video? y/n: ") == "y":
-            render_movie(os.path.join(working_dir, project))
+        if raw_input("Paused, continue? y/n: ") == "y":
+            record(0,screenshot_number)
+        else:
+            if raw_input("Render recorded video? y/n: ") == "y":
+                render_movie(os.path.join(working_dir, project))
         pass
 
 if len(sys.argv) > 1:

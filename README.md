@@ -5,7 +5,14 @@ To run simply:
 ```
 python app.py
 ```
-Stop recording with "Command + C"
+
+If you want to start screenshots from a specific point, scr_00035.png for example:
+```
+python app.py 35
+```
+
+
+Pause/Render recording with "Command + C"
 
 ---
 
